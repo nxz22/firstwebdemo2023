@@ -1,0 +1,71 @@
+<!-- Nazeem Bacus - First Website-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Click Image to Show</title>
+</head>
+<body style="text-align: center; background-color: #222034;">
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    #myImage {
+        width: 200px; 
+        height: auto;
+    }
+    #overlayImage {
+        position: absolute;
+        width: 70%; 
+        height: auto;
+        top: 48%;
+        left: 50.5%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+    }
+    #topText{
+        font-family: 'Courier New', Courier, monospace;
+        color: white;
+        position: absolute;
+        top: 0;
+    }
+    #myText{
+        color: white;
+    }
+</style>
+    <div class="container">
+        <div id="topText">
+            <p>DO NOT WAKE UP THE CAT</p>
+        </div>
+
+    <div class="container">
+        <img id="myImage" src="image.gif" onclick="showText()" style="cursor: pointer;">
+        <img id="overlayImage" src="background.png""> 
+    </div>
+
+    <div id="myText" style="display: none;">
+        <p>Nice Job! He went from Cat Nap to French Flapjack:</p>
+    </div>
+
+    <audio id="soundClick"> 
+        <source src="soundClick.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function showText() {
+            const clickSound = document.getElementById("soundClick"); 
+            clickSound.play();
+            document.getElementById("overlayImage").style.display = "none";
+            document.getElementById("myText").style.display = "block"; 
+            document.getElementById("myImage").src = "image2.png"; 
+        }
+    </script>
+
+</body>
+</html>
